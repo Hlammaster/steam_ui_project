@@ -19,7 +19,7 @@ public class MainPageTests extends TestBase {
 
     @Test
     void headerMenuContentTest() {
-        steamPage.openPage();
+      steamPage.openPage();
         steamPage.headerMenuContent();
     }
 
@@ -32,7 +32,7 @@ public class MainPageTests extends TestBase {
 
     @Test
     void searchFieldAppearsInSupportMenuTest() {
-        steamPage.openPage();
+       steamPage.openPage();
         steamPage.supportButtonClick();
         steamPage.gamesAndProgramsClick();
         steamPage.verifySearchSupportInputVisible();

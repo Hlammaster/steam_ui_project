@@ -41,7 +41,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-task steam_test(type: Test) {
+task test(type: Test) {
     useJUnitPlatform{
 
     }
