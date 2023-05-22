@@ -1,9 +1,9 @@
 {
   "base": {
     "logo": "",
-    "project": "steam project",
+    "project": "Steam project",
     "environment": "Prod",
-    "comment": "any comment here, @johnnyhlammaster",
+    "comment": "Test results, @AnyNickName",
     "reportLink": "https://jenkins.autotests.cloud",
     "language": "ru",
     "allureFolder": "allure-report/",
