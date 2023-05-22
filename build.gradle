@@ -41,9 +41,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-task steam_test(type: Test) {
+tasks.withType(Test) {
     systemProperties(System.getProperties())
-    useJUnitPlatform{
+    useJUnitPlatform()
 
     }
 }
