@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import components.ContentVerifyModal;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
@@ -44,6 +45,7 @@ public class SteamPage {
 
         return this;
     }
+    @Step("Кликнуть кнопку 'Support'")
     public SteamPage supportButtonClick(){
         supportButton.click();
 
@@ -71,6 +73,7 @@ public class SteamPage {
 
         return this;
     }
+    @Step("Кликнуть кнопку 'Community'")
     public SteamPage communityButtonClick(){
         communityButton.click();
 
