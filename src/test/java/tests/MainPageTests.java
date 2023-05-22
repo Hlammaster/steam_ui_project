@@ -63,7 +63,7 @@ public class MainPageTests extends TestBase {
     @CsvSource(value = {
             "Italiano, Installa Steam",
             "English, Install Steam",
-            "Русский, Установить Steam"
+            "Deutsch, Steam installieren"
     })
     void correctLanguageDisplayTest2(String language, String expectedResult) {
         steamPage.openPage();
