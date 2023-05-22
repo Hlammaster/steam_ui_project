@@ -41,8 +41,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-task dataqa_test(type: Test) {
+task steam_test(type: Test) {
     useJUnitPlatform{
-        includeTags("dataqa")
+
     }
 }
