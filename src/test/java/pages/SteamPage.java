@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import components.ContentVerifyModal;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,6 +10,17 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SteamPage {
+    private SelenideElement
+            searchInput = $("#store_nav_search_term"),
+            supportButton =  $(".supernav_container").$(byText("ПОДДЕРЖКА")),
+            gamesAndProgramsButton = $("[href='https://help.steampowered.com/ru/wizard/HelpWithGame']"),
+            firstGameInTheList = $(".responsive_search_name_combined"),
+            addToCardButton = $("#btn_add_to_cart_302"),
+            communityButton =  $(".supernav_container").$(byText("СООБЩЕСТВО")),
+            searchPlayersInput = $("#SearchPlayers"),
+            languageButton = $("#language_pulldown"),
+            languageDropDownList = $("#language_dropdown");
+
     ContentVerifyModal contentVerifyModal = new ContentVerifyModal();
     public SteamPage openPage(){
         open("https://store.steampowered.com/");
@@ -23,7 +35,7 @@ public class SteamPage {
     }
 
     public SteamPage searchFieldEnterKey(String key){
-        $("#store_nav_search_term").setValue(key).pressEnter();
+        searchInput.setValue(key).pressEnter();
 
         return this;
     }
@@ -33,12 +45,12 @@ public class SteamPage {
         return this;
     }
     public SteamPage supportButtonClick(){
-        $(".supernav_container").$(byText("ПОДДЕРЖКА")).click();
+        supportButton.click();
 
         return this;
     }
     public SteamPage gamesAndProgramsClick(){
-        $("[href='https://help.steampowered.com/ru/wizard/HelpWithGame']").click();
+        gamesAndProgramsButton.click();
 
         return this;
     }
@@ -49,8 +61,8 @@ public class SteamPage {
     }
 
     public SteamPage addToCard(){
-        $(".responsive_search_name_combined").click();
-        $("#btn_add_to_cart_302").click();
+        firstGameInTheList.click();
+        addToCardButton.click();
 
         return this;
     }
@@ -60,12 +72,12 @@ public class SteamPage {
         return this;
     }
     public SteamPage communityButtonClick(){
-        $(".supernav_container").$(byText("СООБЩЕСТВО")).click();
+        communityButton.click();
 
         return this;
     }
-    public SteamPage searchFriendsInputEnterKey(){
-        $("#SearchPlayers").setValue("Qa automation").pressEnter();
+    public SteamPage searchFriendsInputEnterKey(String friend){
+        searchPlayersInput.setValue(friend).pressEnter();
 
         return this;
     }
@@ -75,12 +87,12 @@ public class SteamPage {
         return this;
     }
     public SteamPage clickLanguageButton(){
-        $("#language_pulldown").click();
+       languageButton.click();
 
         return this;
     }
     public SteamPage setLanguage(String language){
-        $("#language_dropdown").$(withText(language)).click();
+       languageDropDownList.$(withText(language)).click();
 
         return this;
     }

@@ -13,13 +13,8 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class MainPageTests {
+public class MainPageTests extends TestBase {
     SteamPage steamPage = new SteamPage();
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
 
 
     @Test
@@ -58,7 +53,7 @@ public class MainPageTests {
     void friendsSearchTest() {
         steamPage.openPage();
         steamPage.communityButtonClick();
-        steamPage.searchFriendsInputEnterKey();
+        steamPage.searchFriendsInputEnterKey("Qa automation");
         steamPage.verifyFriendsSearchResult();
 
 
