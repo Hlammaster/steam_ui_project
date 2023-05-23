@@ -15,41 +15,46 @@ public class CartPage {
             firstGameInTheList = $(".responsive_search_name_combined"),
             addToCardButton = $(".btn_green_steamui"),
             removeButton = $(".remove_link");
-@Step("Открыть сайт 'https://store.steampowered.com'")
+
     public CartPage openPage() {
-        open("https://store.steampowered.com/");
+        step("Открыть страницу 'https://store.steampowered.com/'", () ->
+                open("https://store.steampowered.com/"));
 
         return this;
     }
 
     public CartPage searchFieldEnterKey(String key) {
-        step("Ввести в поле поиска" + key, () ->
-        searchInput.setValue(key).pressEnter());
+        step("Ввести в поле поиска " + key, () ->
+                searchInput.setValue(key).pressEnter());
 
         return this;
     }
-@Step("Нажать добавить в корзину")
+
     public CartPage addToCard() {
-        firstGameInTheList.click();
+        step("Добавить товар в корзину", () ->
+                firstGameInTheList.click());
         addToCardButton.click();
 
         return this;
     }
-@Step("Проверить, что игра добавилась в корзину")
+
     public CartPage verifyGameAddToCard() {
-        contentVerifyModal.verifyGameAddToCart();
+        step("Проверить, что игра добавилась в корзину", () ->
+                contentVerifyModal.verifyGameAddToCart());
 
         return this;
     }
-@Step("Нажать кнопку 'удалить'")
+
     public CartPage removeButtonClick() {
-        removeButton.click();
+        step("Нажать кнопку 'удалить'", () ->
+                removeButton.click());
 
         return this;
     }
-@Step("Проверить, что игра удалилась из корзины")
+
     public CartPage verifyGameRemoveFromCart() {
-        contentVerifyModal.verifyGameRemoveFromCart();
+        step("Проверить, что игра удалилась из корзины", () ->
+                contentVerifyModal.verifyGameRemoveFromCart());
 
         return this;
     }

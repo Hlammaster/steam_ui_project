@@ -28,7 +28,7 @@ public class MainPageTests extends TestBase {
     void searchFieldTest() {
         steamPage.openPage();
         steamPage.searchFieldEnterKey(game);
-        steamPage.searchFieldResult();
+        steamPage.searchFieldResult(game);
     }
 
     @Test

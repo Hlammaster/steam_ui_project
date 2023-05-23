@@ -21,87 +21,96 @@ public class SteamPage {
             languageDropDownList = $("#language_dropdown");
 
     ContentVerifyModal contentVerifyModal = new ContentVerifyModal();
-@Step("Открыть сайт 'https://store.steampowered.com'")
+
     public SteamPage openPage() {
-        open("https://store.steampowered.com/");
+        step("Открыть страницу 'https://store.steampowered.com/'", () ->
+                open("https://store.steampowered.com/"));
 
         return this;
     }
-@Step("Проверить наличие подразделов в хедерменю")
+
     public SteamPage headerMenuContent() {
-        contentVerifyModal.verifyHeaderMenuContent();
+        step("Проверить наличие подразделов в хедер меню", () ->
+                contentVerifyModal.verifyHeaderMenuContent());
 
         return this;
     }
-@Step("Ввести в поле поиска название игры")
+
     public SteamPage searchFieldEnterKey(String key) {
-        searchInput.setValue(key).pressEnter();
-
-        return this;
-    }
-@Step()
-    public SteamPage searchFieldResult() {
-        contentVerifyModal.verifySearchFieldResult();
+        step("Ввести в поле поиска название игры " + key, () ->
+                searchInput.setValue(key).pressEnter());
 
         return this;
     }
 
-    @Step("Кликнуть кнопку 'Support'")
+    public SteamPage searchFieldResult(String game) {
+        step("Проверить, что в списке появлился " + game, () ->
+                contentVerifyModal.verifySearchFieldResult());
+
+        return this;
+    }
+
+
     public SteamPage supportButtonClick() {
-        supportButton.click();
+        step("Кликнуть кнопку 'Support'", () ->
+                supportButton.click());
 
         return this;
     }
-@Step("Нажать на вкладку Games,Programs")
+
     public SteamPage gamesAndProgramsClick() {
-        gamesAndProgramsButton.click();
+        step("Нажать на вкладку Games,Programs", () ->
+                gamesAndProgramsButton.click());
 
         return this;
     }
-@Step("Проверить, что появилось поле поиска")
+
     public SteamPage verifySearchSupportInputVisible() {
-        contentVerifyModal.verifySearchSupportInputVisible();
+        step("Проверить, что появилось поле поиска", () ->
+                contentVerifyModal.verifySearchSupportInputVisible());
 
         return this;
     }
 
 
-    @Step("Кликнуть кнопку 'Community'")
     public SteamPage communityButtonClick() {
-        communityButton.click();
+        step("Кликнуть кнопку 'Community'", () ->
+                communityButton.click());
 
         return this;
     }
 
     public SteamPage searchFriendsInputEnterKey(String friend) {
-    step("Ввести в поле поиска" + friend, () ->
-        searchPlayersInput.setValue(friend).pressEnter());
+        step("Ввести в поле поиска" + friend, () ->
+                searchPlayersInput.setValue(friend).pressEnter());
 
         return this;
     }
 
     public SteamPage verifyFriendsSearchResult(String player) {
-    step("Проверить, что в списке появился" + player, () ->
-        contentVerifyModal.verifyFriendsSearchResult());
+        step("Проверить, что в списке появился" + player, () ->
+                contentVerifyModal.verifyFriendsSearchResult());
 
         return this;
     }
-@Step("Нажать кнопку 'Language'")
+
     public SteamPage clickLanguageButton() {
-        languageButton.click();
+        step("Нажать кнопку 'Language'", () ->
+                languageButton.click());
 
         return this;
     }
 
     public SteamPage setLanguage(String language) {
-        step("Выбрать в списке" + language, () ->
-        languageDropDownList.$(withText(language)).click());
+        step("Выбрать в списке " + language, () ->
+                languageDropDownList.$(withText(language)).click());
 
         return this;
     }
+
     public SteamPage verifyLanguageContentResult(String expectedResult) {
-        step("Проверить, что 'install Steam' изменилась на" + expectedResult, () ->
-        contentVerifyModal.verifyLanguageContentResult(expectedResult));
+        step("Проверить, что кнопка 'install Steam' изменилась на " + expectedResult, () ->
+                contentVerifyModal.verifyLanguageContentResult(expectedResult));
 
         return this;
     }
