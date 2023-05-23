@@ -46,7 +46,7 @@ public class MainPageTests extends TestBase {
         steamPage.openPage();
         steamPage.communityButtonClick();
         steamPage.searchFriendsInputEnterKey(player);
-        steamPage.verifyFriendsSearchResult();
+        steamPage.verifyFriendsSearchResult(player);
 
 
     }
