@@ -32,8 +32,15 @@ public class CartPage {
 
     public CartPage addToCard() {
         step("Добавить товар в корзину", () ->
+
+        addToCardButton.click());
+
+        return this;
+    }
+    public CartPage choseTheGame() {
+        step("Выбрать игру из списка", () ->
                 firstGameInTheList.click());
-        addToCardButton.click();
+
 
         return this;
     }

@@ -81,14 +81,14 @@ public class SteamPage {
     }
 
     public SteamPage searchFriendsInputEnterKey(String friend) {
-        step("Ввести в поле поиска" + friend, () ->
+        step("Ввести в поле поиска " + friend, () ->
                 searchPlayersInput.setValue(friend).pressEnter());
 
         return this;
     }
 
     public SteamPage verifyFriendsSearchResult(String player) {
-        step("Проверить, что в списке появился" + player, () ->
+        step("Проверить, что в списке появился " + player, () ->
                 contentVerifyModal.verifyFriendsSearchResult());
 
         return this;

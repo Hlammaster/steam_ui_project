@@ -11,9 +11,10 @@ public class CartTests extends TestBase {
     @Test
     void addProductToCardTest() {
         cartPage.openPage().
-                searchFieldEnterKey(game).
-                addToCard().
-                verifyGameAddToCard();
+                searchFieldEnterKey(game)
+                .choseTheGame()
+                .addToCard()
+                .verifyGameAddToCard();
 
     }
 
@@ -21,6 +22,7 @@ public class CartTests extends TestBase {
     public void blabla() {
         cartPage.openPage()
                 .searchFieldEnterKey(game2)
+                .choseTheGame()
                 .addToCard()
                 .verifyGameAddToCard()
                 .removeButtonClick()
