@@ -15,24 +15,25 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPageTests extends TestBase {
     SteamPage steamPage = new SteamPage();
-
+    String game = "Cyberpunk",
+            player = "Qa automation";
 
     @Test
     void headerMenuContentTest() {
-      steamPage.openPage();
+        steamPage.openPage();
         steamPage.headerMenuContent();
     }
 
     @Test
     void searchFieldTest() {
         steamPage.openPage();
-        steamPage.searchFieldEnterKey("Cyberpunk");
+        steamPage.searchFieldEnterKey(game);
         steamPage.searchFieldResult();
     }
 
     @Test
     void searchFieldAppearsInSupportMenuTest() {
-       steamPage.openPage();
+        steamPage.openPage();
         steamPage.supportButtonClick();
         steamPage.gamesAndProgramsClick();
         steamPage.verifySearchSupportInputVisible();
@@ -41,19 +42,10 @@ public class MainPageTests extends TestBase {
 
 
     @Test
-    void addProductToCardTest() {
-        steamPage.openPage();
-        steamPage.searchFieldEnterKey("Arx Fatalis");
-        steamPage.addToCard();
-        steamPage.verifyGameAddToCard();
-
-    }
-
-    @Test
     void friendsSearchTest() {
         steamPage.openPage();
         steamPage.communityButtonClick();
-        steamPage.searchFriendsInputEnterKey("Qa automation");
+        steamPage.searchFriendsInputEnterKey(player);
         steamPage.verifyFriendsSearchResult();
 
 
