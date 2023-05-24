@@ -1,4 +1,4 @@
-# steam_ui_project
+
 <h1 >Демопроект автотестирования UI на сайте <a href="https://store.steampowered.com/ ">steam</a></h1>
 
 ![Steam_logo.svg.png](media/screenshots/steam.jpg)
