@@ -130,7 +130,7 @@ gradle clean test
 
 ### Связка Jira и Allure TestOps
 <p align="center">
-<img title="Jira" src="images/screenshots/JiraUI.png">
+<img title="Jira" src="media/screenshots/jira.jpg">
 </p>
 
 
