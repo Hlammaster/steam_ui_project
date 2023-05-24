@@ -29,7 +29,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Проверка результа выдачи поиска")
+    @DisplayName("Проверка результата поисковой выдачи")
     @Test
     void searchFieldTest() {
         steamPage.openPage()
@@ -38,7 +38,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Severity(SeverityLevel.BLOCKER)
-    @DisplayName("Проверка наличия поискового запроса при выборе категории в меню Поддержка")
+    @DisplayName("Проверка наличия поля поиска при выборе категории в меню Поддержка")
     @Test
     void searchFieldAppearsInSupportMenuTest() {
         steamPage.openPage()
