@@ -1,5 +1,5 @@
 
-<h1 >Демопроект автотестирования UI на сайте <a href="https://store.steampowered.com/ ">steam</a></h1>
+<h1 >Проект автоматизации тестирования UI для сайта <a href="https://store.steampowered.com/ ">Steam</a></h1>
 
 ![Steam_logo.svg.png](media/screenshots/steam.jpg)
 
