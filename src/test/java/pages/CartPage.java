@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.ContentVerifyModal;
-import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -10,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 
 public class CartPage {
     ContentVerifyModal contentVerifyModal = new ContentVerifyModal();
-    private SelenideElement
+    private final SelenideElement
             searchInput = $("#store_nav_search_term"),
             firstGameInTheList = $(".responsive_search_name_combined"),
             addToCardButton = $(".btn_green_steamui"),
@@ -23,9 +22,9 @@ public class CartPage {
         return this;
     }
 
-    public CartPage searchFieldEnterKey(String key) {
-        step("Ввести в поле поиска " + key, () ->
-                searchInput.setValue(key).pressEnter());
+    public CartPage searchFieldEnterKey(String game1) {
+        step("Ввести в поле поиска " + game1, () ->
+                searchInput.setValue(game1).pressEnter());
 
         return this;
     }
@@ -33,10 +32,11 @@ public class CartPage {
     public CartPage addToCard() {
         step("Добавить товар в корзину", () ->
 
-        addToCardButton.click());
+                addToCardButton.click());
 
         return this;
     }
+
     public CartPage choseTheGame() {
         step("Выбрать игру из списка", () ->
                 firstGameInTheList.click());

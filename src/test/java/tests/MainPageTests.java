@@ -17,7 +17,7 @@ public class MainPageTests extends TestBase {
     SteamPage steamPage = new SteamPage();
     Faker faker = new Faker();
 
-    String game = faker.esports().game(),
+    String game = "Cyberpunk",
             player = faker.name().firstName();
 
     @DisplayName("Проверка содержимого хэдер меню")
@@ -59,7 +59,8 @@ public class MainPageTests extends TestBase {
 
 
     }
-@DisplayName("Проверка корректного отображения текста при смене языка")
+
+    @DisplayName("Проверка корректного отображения текста при смене языка")
     @Severity(SeverityLevel.CRITICAL)
     @ParameterizedTest
     @CsvSource(value = {
