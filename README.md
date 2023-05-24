@@ -93,7 +93,7 @@ gradle clean test
 ### Основное окно
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="media/screenshots/alluremain.jpg.jpg">
+<img title="Allure Overview Dashboard" src="media/screenshots/alluremain.jpg">
 </p>
 
 ### Тесты
@@ -146,5 +146,5 @@ gradle clean test
 
 > Видео к прохождению теста "Добавление игры в корзину".
 <p align="center">
-  <img title="Selenoid Video" src="media/video/d879d2ab0c4ea4a2f7871c48c2b2df0b.mp4">
+  <img title="Selenoid Video" src="media/video/d879d2ab0c4ea4a2f7871c48c2b2df0b.gif">
 </p>
