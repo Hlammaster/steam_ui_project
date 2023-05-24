@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.ContentVerifyModal;
-import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 public class SteamPage {
-    private SelenideElement
+    private final SelenideElement
             searchInput = $("#store_nav_search_term"),
             supportButton = $(".supernav_container").$(byText("SUPPORT")),
             gamesAndProgramsButton = $("[href='https://help.steampowered.com/en/wizard/HelpWithGame']"),
@@ -45,7 +44,7 @@ public class SteamPage {
 
     public SteamPage searchFieldResult(String game) {
         step("Проверить, что в списке появлился " + game, () ->
-                contentVerifyModal.verifySearchFieldResult());
+                contentVerifyModal.verifySearchFieldResult(game));
 
         return this;
     }
@@ -80,16 +79,16 @@ public class SteamPage {
         return this;
     }
 
-    public SteamPage searchFriendsInputEnterKey(String friend) {
-        step("Ввести в поле поиска " + friend, () ->
-                searchPlayersInput.setValue(friend).pressEnter());
+    public SteamPage searchFriendsInputEnterKey(String player) {
+        step("Ввести в поле поиска " + player, () ->
+                searchPlayersInput.setValue(player).pressEnter());
 
         return this;
     }
 
     public SteamPage verifyFriendsSearchResult(String player) {
         step("Проверить, что в списке появился " + player, () ->
-                contentVerifyModal.verifyFriendsSearchResult());
+                contentVerifyModal.verifyFriendsSearchResult(player));
 
         return this;
     }

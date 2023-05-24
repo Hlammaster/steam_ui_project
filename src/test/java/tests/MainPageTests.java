@@ -1,56 +1,66 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import com.github.javafaker.Faker;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import pages.SteamPage;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
+@Owner("Evgenii Goncharov")
+@Epic("UI")
 public class MainPageTests extends TestBase {
     SteamPage steamPage = new SteamPage();
-    String game = "Cyberpunk",
-            player = "Qa automation";
+    Faker faker = new Faker();
 
+    String game = faker.esports().game(),
+            player = faker.name().firstName();
+
+    @DisplayName("Проверка содержимого хэдер меню")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     void headerMenuContentTest() {
-        steamPage.openPage();
-        steamPage.headerMenuContent();
+        steamPage.openPage()
+                .headerMenuContent();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Проверка результа выдачи поиска")
     @Test
     void searchFieldTest() {
-        steamPage.openPage();
-        steamPage.searchFieldEnterKey(game);
-        steamPage.searchFieldResult(game);
+        steamPage.openPage()
+                .searchFieldEnterKey(game)
+                .searchFieldResult(game);
     }
 
+    @Severity(SeverityLevel.BLOCKER)
+    @DisplayName("Проверка наличия поискового запроса при выборе категории в меню Поддержка")
     @Test
     void searchFieldAppearsInSupportMenuTest() {
-        steamPage.openPage();
-        steamPage.supportButtonClick();
-        steamPage.gamesAndProgramsClick();
-        steamPage.verifySearchSupportInputVisible();
+        steamPage.openPage()
+                .supportButtonClick()
+                .gamesAndProgramsClick()
+                .verifySearchSupportInputVisible();
 
     }
 
-
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Проверка результаты выдачи поиска по Игрокам")
     @Test
     void friendsSearchTest() {
-        steamPage.openPage();
-        steamPage.communityButtonClick();
-        steamPage.searchFriendsInputEnterKey(player);
-        steamPage.verifyFriendsSearchResult(player);
+        steamPage.openPage()
+                .communityButtonClick()
+                .searchFriendsInputEnterKey(player)
+                .verifyFriendsSearchResult(player);
 
 
     }
-
+@DisplayName("Проверка корректного отображения текста при смене языка")
+    @Severity(SeverityLevel.CRITICAL)
     @ParameterizedTest
     @CsvSource(value = {
             "Italiano, Installa Steam",
@@ -58,10 +68,10 @@ public class MainPageTests extends TestBase {
             "Русский, Установить Steam"
     })
     void correctLanguageDisplayTest2(String language, String expectedResult) {
-        steamPage.openPage();
-        steamPage.clickLanguageButton();
-        steamPage.setLanguage(language);
-        steamPage.verifyLanguageContentResult(expectedResult);
+        steamPage.openPage()
+                .clickLanguageButton()
+                .setLanguage(language)
+                .verifyLanguageContentResult(expectedResult);
 
     }
 }

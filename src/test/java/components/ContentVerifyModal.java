@@ -10,8 +10,8 @@ public class ContentVerifyModal {
                 Condition.text("ABOUT"), Condition.text("SUPPORT"));
     }
 
-    public void verifySearchFieldResult() {
-        $("#search_resultsRows").shouldHave(Condition.text("Cyberpunk"));
+    public void verifySearchFieldResult(String game) {
+        $("#search_resultsRows").shouldHave(Condition.text(game));
     }
 
     public void verifySearchSupportInputVisible() {
@@ -23,8 +23,8 @@ public class ContentVerifyModal {
         $(".cart_status_message").shouldHave(Condition.text("Your item has been added!"));
     }
 
-    public void verifyFriendsSearchResult() {
-        $("#search_results").shouldHave(Condition.text("automation"));
+    public void verifyFriendsSearchResult(String player) {
+        $("#search_results").shouldHave(Condition.text(player));
     }
 
     public void verifyLanguageContentResult(String expectedResult) {
