@@ -41,8 +41,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-task dataqa_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("dataqa")
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
     }
-}
