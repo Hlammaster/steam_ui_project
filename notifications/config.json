@@ -1,7 +1,7 @@
 {
   "base": {
     "logo": "",
-    "project": "Api project",
+    "project": "Steam project",
     "environment": "Prod",
     "comment": "Test results, @AnyNickName",
     "reportLink": "https://jenkins.autotests.cloud",
