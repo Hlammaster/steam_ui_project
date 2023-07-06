@@ -6,8 +6,11 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ContentVerifyModal {
     public void verifyHeaderMenuContent() {
-        $(".supernav_container").shouldHave(Condition.text("STORE"), Condition.text("COMMUNITY"),
-                Condition.text("ABOUT"), Condition.text("SUPPORT"));
+        $(".supernav_container").shouldHave(
+                Condition.text("STORE"),
+                Condition.text("COMMUNITY"),
+                Condition.text("ABOUT"),
+                Condition.text("SUPPORT"));
     }
 
     public void verifySearchFieldResult(String game) {

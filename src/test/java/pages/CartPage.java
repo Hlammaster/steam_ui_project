@@ -22,9 +22,9 @@ public class CartPage {
         return this;
     }
 
-    public CartPage searchFieldEnterKey(String game1) {
-        step("Ввести в поле поиска " + game1, () ->
-                searchInput.setValue(game1).pressEnter());
+    public CartPage searchFieldEnterKey(String game) {
+        step("Ввести в поле поиска " + game, () ->
+                searchInput.setValue(game).pressEnter());
 
         return this;
     }

@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class SteamPage {
+public class MainPage {
     private final SelenideElement
             searchInput = $("#store_nav_search_term"),
             supportButton = $(".supernav_container").$(byText("SUPPORT")),
@@ -21,28 +21,28 @@ public class SteamPage {
 
     ContentVerifyModal contentVerifyModal = new ContentVerifyModal();
 
-    public SteamPage openPage() {
+    public MainPage openPage() {
         step("Открыть страницу 'https://store.steampowered.com/'", () ->
                 open("https://store.steampowered.com/"));
 
         return this;
     }
 
-    public SteamPage headerMenuContent() {
+    public MainPage headerMenuContent() {
         step("Проверить наличие подразделов в хедер меню", () ->
                 contentVerifyModal.verifyHeaderMenuContent());
 
         return this;
     }
 
-    public SteamPage searchFieldEnterKey(String key) {
+    public MainPage searchFieldEnterKey(String key) {
         step("Ввести в поле поиска название игры " + key, () ->
                 searchInput.setValue(key).pressEnter());
 
         return this;
     }
 
-    public SteamPage searchFieldResult(String game) {
+    public MainPage searchFieldResult(String game) {
         step("Проверить, что в списке появлился " + game, () ->
                 contentVerifyModal.verifySearchFieldResult(game));
 
@@ -50,21 +50,21 @@ public class SteamPage {
     }
 
 
-    public SteamPage supportButtonClick() {
+    public MainPage supportButtonClick() {
         step("Кликнуть кнопку 'Support'", () ->
                 supportButton.click());
 
         return this;
     }
 
-    public SteamPage gamesAndProgramsClick() {
+    public MainPage gamesAndProgramsClick() {
         step("Нажать на вкладку Games,Programs", () ->
                 gamesAndProgramsButton.click());
 
         return this;
     }
 
-    public SteamPage verifySearchSupportInputVisible() {
+    public MainPage verifySearchSupportInputVisible() {
         step("Проверить, что появилось поле поиска", () ->
                 contentVerifyModal.verifySearchSupportInputVisible());
 
@@ -72,42 +72,42 @@ public class SteamPage {
     }
 
 
-    public SteamPage communityButtonClick() {
+    public MainPage communityButtonClick() {
         step("Кликнуть кнопку 'Community'", () ->
                 communityButton.click());
 
         return this;
     }
 
-    public SteamPage searchFriendsInputEnterKey(String player) {
+    public MainPage searchFriendsInputEnterKey(String player) {
         step("Ввести в поле поиска " + player, () ->
                 searchPlayersInput.setValue(player).pressEnter());
 
         return this;
     }
 
-    public SteamPage verifyFriendsSearchResult(String player) {
+    public MainPage verifyFriendsSearchResult(String player) {
         step("Проверить, что в списке появился " + player, () ->
                 contentVerifyModal.verifyFriendsSearchResult(player));
 
         return this;
     }
 
-    public SteamPage clickLanguageButton() {
+    public MainPage clickLanguageButton() {
         step("Нажать кнопку 'Language'", () ->
                 languageButton.click());
 
         return this;
     }
 
-    public SteamPage setLanguage(String language) {
+    public MainPage setLanguage(String language) {
         step("Выбрать в списке " + language, () ->
                 languageDropDownList.$(withText(language)).click());
 
         return this;
     }
 
-    public SteamPage verifyLanguageContentResult(String expectedResult) {
+    public MainPage verifyLanguageContentResult(String expectedResult) {
         step("Проверить, что кнопка 'install Steam' изменилась на " + expectedResult, () ->
                 contentVerifyModal.verifyLanguageContentResult(expectedResult));
 

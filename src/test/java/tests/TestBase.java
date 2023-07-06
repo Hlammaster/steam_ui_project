@@ -20,7 +20,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.remote = System.getProperty("remoteUrl","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browserVersion = System.getProperty("browserVersion", "100");
@@ -31,12 +31,13 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
         Configuration.pageLoadStrategy = "eager";
     }
+
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-          closeWebDriver();
+        closeWebDriver();
     }
 }
